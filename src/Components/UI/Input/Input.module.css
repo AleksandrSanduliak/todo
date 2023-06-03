@@ -16,11 +16,17 @@
   line-height: 140%;
 
   transition: all .4s ease;
-  
+  @media(max-width:768.98px){
+    width: 60vw;
+  }
+  @media(max-width:425.98px){
+    margin: 0 auto;
+    width: 80vw;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
   &:focus, &:hover{
     background: #2e2e2e;
   }
-  @media (max-width: 1250px) {
-  
-  }
+
 }

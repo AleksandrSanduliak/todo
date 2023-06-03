@@ -15,6 +15,7 @@ function App() {
   ])
   const [input, setInput] = useState<string>('')
   const [completed, setCompleted] = useState(0)
+
   const addCompleted = () => setCompleted(n => n+1)
   const remCompleted = () => setCompleted(n => n-1)
   const createTask = (newTask:tasksType) => {

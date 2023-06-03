@@ -1,7 +1,7 @@
 import { HandlerEvent} from '../../../Types/types';
 import garbage from './garbage.svg'
 import styles from './ItemLi.module.css'
-import {useCallback, useState, useRef} from 'react';
+import {useCallback, useState, useRef, useMemo} from 'react';
 import React from 'react';
 interface List {
 key:string|number,
@@ -16,6 +16,7 @@ const ItemLi = ({...props}:List) => {
     const [isClicked, setIsClicked] = useState<boolean>(false)
     const Complete = React.useCallback((e:HandlerEvent) => {
        setIsClicked(!isClicked)
+        isClicked===false? props.add() : props.del()
     },[isClicked, setIsClicked])
     const garbageClick = () => {
         props.deleting(props.indx);
