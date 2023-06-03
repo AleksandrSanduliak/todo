@@ -1,0 +1,31 @@
+.Counter {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+
+  display: flex;
+  align-content: center;
+
+}
+.counter__text {
+  margin-right: 0.5rem;
+}
+.circle__counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.125rem 0.5rem;
+  min-width: 1.563rem;
+  height: 1.188rem;
+
+  font-size: 0.75rem;
+  line-height: 0.938rem;
+
+  color: #d9d9d9;
+  background: #333333;
+  border-radius: 999px;
+}

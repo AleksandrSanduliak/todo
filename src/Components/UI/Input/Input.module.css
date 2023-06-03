@@ -1,0 +1,26 @@
+.input {
+  width: 39.875rem;
+  height: 3.375rem;
+
+  background: #262626;
+  border: 1px solid #0d0d0d;
+  border-radius: 8px;
+  padding: 1rem;
+  outline: none;
+  color: #808080;
+  
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 140%;
+
+  transition: all .4s ease;
+  
+  &:focus, &:hover{
+    background: #2e2e2e;
+  }
+  @media (max-width: 1250px) {
+  
+  }
+}

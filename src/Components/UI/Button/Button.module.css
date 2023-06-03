@@ -1,0 +1,27 @@
+.btn {
+  cursor: pointer;
+  width: 5.625rem;
+  height: 3.25rem;
+  background: #1e6f9f;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 140%;
+  color: #f2f2f2;
+
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.4s ease-out;
+  &:focus, &:hover{
+    background: #125f8b;
+  }
+}
+
+.btn__img {
+  margin-left: 0.5rem;
+}
