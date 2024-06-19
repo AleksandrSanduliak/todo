@@ -9,9 +9,11 @@
   align-content: center;
 
 }
+
 .counter__text {
   margin-right: 0.5rem;
 }
+
 .circle__counter {
   display: flex;
   flex-direction: column;

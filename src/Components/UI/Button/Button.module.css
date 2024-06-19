@@ -17,7 +17,9 @@
   display: inline-flex;
   align-items: center;
   transition: all 0.4s ease-out;
-  &:focus, &:hover{
+
+  &:focus,
+  &:hover {
     background: #125f8b;
   }
 }

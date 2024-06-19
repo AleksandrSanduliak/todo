@@ -8,7 +8,7 @@
   padding: 1rem;
   outline: none;
   color: #808080;
-  
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -16,16 +16,20 @@
   line-height: 140%;
 
   transition: all .4s ease;
-  @media(max-width:768.98px){
+
+  @media(max-width:768.98px) {
     width: 60vw;
   }
-  @media(max-width:425.98px){
+
+  @media(max-width:425.98px) {
     margin: 0 auto;
     width: 80vw;
     margin-bottom: 1rem;
     margin-left: 1rem;
   }
-  &:focus, &:hover{
+
+  &:focus,
+  &:hover {
     background: #2e2e2e;
   }
 
