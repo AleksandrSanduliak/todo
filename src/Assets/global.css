@@ -9,23 +9,7 @@ body {
   height: 100%;
   background: #1a1a1a;
 }
-.black{
-  position: absolute;
-  width: 100%;
-  left: -10%;
-  top: -10%;
-  height: 17.5rem;
 
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 13.5rem;
-  background: #0d0d0d;
-  z-index: -99;
-  @media(max-width:768.98px){
-
-  }
-}
 *,
 *::before,
 *::after {
@@ -54,10 +38,12 @@ ul {
   margin: 0;
   padding: 0;
 }
-p{
+
+p {
   margin: 0;
   padding: 0;
 }
+
 input {
   -webkit-appearance: none;
   appearance: none;
@@ -72,27 +58,35 @@ input {
     display: none;
   }
 }
-#root{
-  /* min-height: inherit; */
-}
+
 .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* min-height: inherit; */
-    @media(max-width:768.98px){
-      max-width:none;
-      padding: 0 2rem;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .Container {
-    max-width: 46rem;
-    padding: 1rem;
-    overflow: hidden;
-  }
-  .counters{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
+  max-width: 80rem;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+#modal-root {
+  position: relative;
+  z-index: 99999;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+}

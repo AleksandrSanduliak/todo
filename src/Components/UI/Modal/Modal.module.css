@@ -1,0 +1,35 @@
+.wrapper {
+  border-radius: 1rem;
+  background-color: white;
+  position: fixed;
+
+  top: 10%;
+
+  width: 90vw;
+  height: 80vh;
+
+  overflow-y: scroll;
+}
+
+.cross {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border-radius: 1rem;
+  top: 2.5rem;
+  right: 2.5rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.fade {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.3;
+}

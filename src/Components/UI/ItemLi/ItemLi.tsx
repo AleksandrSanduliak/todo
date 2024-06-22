@@ -1,48 +1,38 @@
-import { HandlerEvent } from "../../../Types/types";
+import { TodoContext } from "../../../Provider/ContentProvider";
+import { TTodos } from "../../../Utils/date/getCurrentDate";
 import garbage from "./garbage.svg";
 import styles from "./ItemLi.module.css";
-import { useState } from "react";
-import React from "react";
-interface List {
-  key: string | number;
-  indx: number | string;
+import { useContext } from "react";
+
+interface IList {
+  id: number;
   task: string;
-  deleting: any;
-  add: any;
-  del: any;
+  monthId: number;
+  data: TTodos;
 }
 
-const ItemLi = ({ ...props }: List) => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-  const Complete = React.useCallback(
-    (e: HandlerEvent) => {
-      setIsClicked(!isClicked);
-      isClicked === false ? props.add() : props.del();
-    },
-    [isClicked, props]
-  );
-  const garbageClick = () => {
-    props.deleting(props.indx);
-  };
+const ItemLi = ({ id, task, monthId, data }: IList) => {
+  const { completeTodo, deleteTodo } = useContext(TodoContext);
+
   return (
-    <div className={styles.list__wrapper} key={props.key}>
+    <div className={styles.list__wrapper}>
       <span
-        onClick={Complete}
-        className={[
-          styles.cirle__list,
-          isClicked ? styles.circle__active : null,
-        ].join(" ")}
+        onClick={() => {
+          completeTodo(monthId, id);
+        }}
+        className={`${styles.cirle__list}
+          ${data.completed ? styles.circle__active : null}`}
       ></span>
       <span
-        className={[
-          styles.list__item,
-          isClicked ? styles.list__active : null,
-        ].join(" ")}
+        className={`${styles.list__item}
+        ${data.completed ? styles.list__active : null}`}
       >
-        {props.indx}
-        {props.task}
+        {task}
       </span>
-      <span onClick={garbageClick} className={styles.delete__wrap}>
+      <span
+        onClick={() => deleteTodo(monthId, id)}
+        className={styles.delete__wrap}
+      >
         <img className={styles.delete} src={garbage} alt="Delete Icon" />
       </span>
     </div>

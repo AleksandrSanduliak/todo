@@ -1,14 +1,12 @@
 export interface tasksType {
   id: number;
   taskValue: string;
+  completed: boolean;
 }
 
 export interface FormTypes {
   task: tasksType[];
-  setTask: React.Dispatch<React.SetStateAction<tasksType[]>>;
-  input: string;
-  setInput: React.Dispatch<React.SetStateAction<string>>;
-  create: any;
+  monthId: number;
 }
 
 export type InputEvent = React.ChangeEvent<HTMLInputElement>;

@@ -1,20 +1,29 @@
-import { useCallback } from "react";
 import { HandlerEvent, tasksType } from "../../Types/types";
 import { FormTypes } from "../../Types/types";
 import Input from "../UI/Input/Input";
 import { InputEvent } from "../../Types/types";
 import Button from "../UI/Button/Button";
 import styles from "./Form.module.css";
-const Form = ({ task, input, setInput, create, setTask }: FormTypes) => {
-  const HandleSubmit = useCallback(
-    (ev: HandlerEvent) => {
-      ev.preventDefault();
-      const newTask: tasksType = { id: task.length + 1, taskValue: input };
-      create(newTask);
-      setInput("");
-    },
-    [create, input, setInput, task.length]
-  );
+import { useContext, useState } from "react";
+import { TodoContext } from "../../Provider/ContentProvider";
+
+const Form = ({ task, monthId }: FormTypes) => {
+  const [input, setInput] = useState<string>("");
+  const { addItem } = useContext(TodoContext);
+  const HandleSubmit = (ev: HandlerEvent) => {
+    ev.preventDefault();
+
+    const lastElementId = task[task.length - 1].id;
+    const newTask: tasksType = {
+      id: lastElementId + 1,
+      taskValue: input,
+      completed: false,
+    };
+
+    addItem(monthId, newTask);
+    setInput("");
+  };
+
   return (
     <form className={styles.form}>
       <Input

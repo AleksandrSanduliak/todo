@@ -1,0 +1,16 @@
+.wrapper {
+  height: 5rem;
+  background-color: rgb(221, 220, 220);
+  border-radius: 0.625rem;
+}
+
+.number {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}
+
+
+.currentDay {
+  outline: 0.313rem solid red;
+}

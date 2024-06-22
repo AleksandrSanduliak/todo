@@ -1,8 +1,9 @@
 import styles from "./Counter.module.css";
 import { tasksType } from "../../Types/types";
+
 interface CounterTypes {
   text: string;
-  color: any;
+  color: string;
   task: tasksType[];
   ofs?: string;
   completed?: number;
