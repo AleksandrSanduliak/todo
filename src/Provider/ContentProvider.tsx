@@ -1,32 +1,26 @@
 import { createContext, useState } from "react";
 import {
+  Items,
   TTodos,
   getCurrentWeek,
   monthsData,
 } from "../Utils/date/getCurrentDate";
 import { tasksType } from "../Types/types";
 
-export type TItems = {
-  [key: string]: {
-    data: monthsData[];
-  };
-};
-
 export const TodoContext = createContext({
-  items: {} as TItems,
+  items: {} as Items,
   addItem: (monthId: number, item: tasksType) => {},
   deleteTodo: (monthId: number, id: number) => {},
   completeTodo: (monthId: number, id: number) => {},
+  setTodoItems: (items: Items) => {},
 });
 
 export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
-  const currentWeek = getCurrentWeek();
-
-  const [todoItems, setTodoItems] = useState(currentWeek.monthsData);
+  const [todoItems, setTodoItems] = useState(getCurrentWeek());
 
   const addItem = (monthId: number, item: tasksType) => {
     const newTodoItem = structuredClone(todoItems);
-    const findItem = newTodoItem[currentWeek.monthName].data.filter(
+    const findItem = newTodoItem.monthsData[todoItems.monthName].data.filter(
       (item: monthsData) => item.id === monthId
     );
 
@@ -36,11 +30,11 @@ export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
     };
     day.todos.push({ ...item });
 
-    newTodoItem[currentWeek.monthName].data[monthId] = day;
+    newTodoItem.monthsData[todoItems.monthName].data[monthId] = day;
 
     const month = {
-      [currentWeek.monthName]: {
-        data: [...newTodoItem[currentWeek.monthName].data],
+      [todoItems.monthName]: {
+        data: [...newTodoItem.monthsData[todoItems.monthName].data],
       },
     };
 
@@ -50,25 +44,25 @@ export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
   const deleteTodo = (monthId: number, id: number) => {
     const newTodoItem = structuredClone(todoItems);
     const currentMonthTodosData =
-      newTodoItem[currentWeek.monthName].data[monthId].todos;
+      newTodoItem.monthsData[todoItems.monthName].data[monthId].todos;
 
     const findItem = currentMonthTodosData.filter(
       (item: TTodos) => item.id !== id
     );
 
-    const changedTodoData = (newTodoItem[currentWeek.monthName].data[
+    const changedTodoData = (newTodoItem.monthsData[todoItems.monthName].data[
       monthId
     ].todos = findItem);
 
     const day = {
-      ...newTodoItem[currentWeek.monthName].data[monthId],
+      ...newTodoItem.monthsData[todoItems.monthName].data[monthId],
       todos: changedTodoData,
     };
 
-    newTodoItem[currentWeek.monthName].data[monthId] = day;
+    newTodoItem.monthsData[todoItems.monthName].data[monthId] = day;
     const month = {
-      [currentWeek.monthName]: {
-        data: [...newTodoItem[currentWeek.monthName].data],
+      [todoItems.monthName]: {
+        data: [...newTodoItem.monthsData[todoItems.monthName].data],
       },
     };
 
@@ -78,24 +72,25 @@ export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
   const completeTodo = (monthId: number, id: number) => {
     const newTodoItem = structuredClone(todoItems);
     const currentMonthTodosData =
-      newTodoItem[currentWeek.monthName].data[monthId].todos;
+      newTodoItem.monthsData[todoItems.monthName].data[monthId].todos;
     const findTodo = currentMonthTodosData.filter(
       (item: TTodos) => item.id === id
     );
 
-    const competedTodo = { ...findTodo[0], completed: !findTodo.completed };
-
-    currentMonthTodosData[id - 1] = competedTodo;
+    const competedTodo = { ...findTodo[0], completed: !findTodo[0].completed };
+    const findIndexFn = (item) => item.id === id;
+    const findingIndex = currentMonthTodosData.findIndex(findIndexFn);
+    currentMonthTodosData[findingIndex] = competedTodo;
 
     const day = {
-      ...newTodoItem[currentWeek.monthName].data[monthId],
+      ...newTodoItem.monthsData[todoItems.monthName].data[monthId],
       todos: [...currentMonthTodosData],
     };
 
-    newTodoItem[currentWeek.monthName].data[monthId] = day;
+    newTodoItem.monthsData[todoItems.monthName].data[monthId] = day;
     const month = {
-      [currentWeek.monthName]: {
-        data: [...newTodoItem[currentWeek.monthName].data],
+      [todoItems.monthName]: {
+        data: [...newTodoItem.monthsData[todoItems.monthName].data],
       },
     };
 
@@ -104,7 +99,13 @@ export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <TodoContext.Provider
-      value={{ items: todoItems, addItem, deleteTodo, completeTodo }}
+      value={{
+        items: todoItems,
+        addItem,
+        deleteTodo,
+        completeTodo,
+        setTodoItems,
+      }}
     >
       {children}
     </TodoContext.Provider>

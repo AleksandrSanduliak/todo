@@ -13,7 +13,7 @@ const Form = ({ task, monthId }: FormTypes) => {
   const HandleSubmit = (ev: HandlerEvent) => {
     ev.preventDefault();
 
-    const lastElementId = task[task.length - 1].id;
+    const lastElementId = task.length ? task[task.length - 1].id : 0;
     const newTask: tasksType = {
       id: lastElementId + 1,
       taskValue: input,

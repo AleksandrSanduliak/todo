@@ -10,9 +10,9 @@ interface ICardInner {
 }
 
 const CardInner = ({ data }: ICardInner) => {
-  const completedTodos = data?.todos?.filter(
-    (todo) => todo.completed === true
-  ).length;
+  const completedTodos = data?.todos?.length
+    ? data?.todos?.filter((todo) => todo.completed === true)?.length
+    : 0;
 
   return (
     <div onClick={(e) => e.stopPropagation()} className={styles.wrapper}>
@@ -24,11 +24,11 @@ const CardInner = ({ data }: ICardInner) => {
           color={"#8284FA"}
           task={data.todos}
           ofs={"out of"}
-          completed={completedTodos}
+          completed={completedTodos ?? 0}
         />
       </div>
 
-      {data.todos.length ? (
+      {data?.todos?.length ? (
         data.todos.map((el) => {
           return (
             <ItemLi

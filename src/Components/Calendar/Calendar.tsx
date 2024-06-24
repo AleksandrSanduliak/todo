@@ -7,34 +7,48 @@ import { getApiData } from "../../Utils/api/getApiData";
 import { TodoContext } from "../../Provider/ContentProvider";
 
 const Calendar = () => {
-  const getDate = getCurrentWeek();
-  const { items } = useContext(TodoContext);
-
+  const { items, setTodoItems } = useContext(TodoContext);
   const [dayOff, setDayOff] = useState("");
-  const [currentMonth, setCurrentMonth] = useState(getDate.monthName);
 
   useEffect(() => {
-    getApiData(new Date().getFullYear(), getDate.currentMonth).then((data) => {
+    getApiData(new Date().getFullYear(), items.currentMonth).then((data) => {
       setDayOff(data as string);
     });
-  }, [getDate.currentMonth]);
+  }, [items.currentMonth]);
 
   return (
     <section>
+      <div className={styles.monthPicker}>
+        <div>
+          <button
+            onClick={() => setTodoItems(getCurrentWeek(items.currentMonth - 1))}
+            className={`${styles.button} ${styles.left}`}
+          >
+            left
+          </button>
+          {items.monthName}
+          <button
+            onClick={() => setTodoItems(getCurrentWeek(items.currentMonth + 1))}
+            className={`${styles.button} ${styles.right}`}
+          >
+            right
+          </button>
+        </div>
+      </div>
       <ul className={`${styles.wrapper} ${styles.weekDays}`}>
         {weekDays.map((item: string) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
       <div className={`${styles.wrapper} ${styles.calendar}`}>
-        {items[currentMonth]?.data?.map((day) => {
+        {items.monthsData[items.monthName]?.data?.map((day) => {
           return (
             <CalendarItem
               key={`calendarItem${day.id}`}
-              startWith={getDate.startWith}
+              startWith={items.startWith}
               data={day}
               dayOff={dayOff[day.id]}
-              currentDay={getDate.currentDay}
+              currentDay={items.currentDay}
             >
               {day.monthDay}
             </CalendarItem>

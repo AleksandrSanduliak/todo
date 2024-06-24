@@ -1,6 +1,7 @@
 import { weekDays } from "./dateHelpers";
 
 const months: string[] = [
+  "",
   "January",
   "February",
   "March",
@@ -27,25 +28,28 @@ export type monthsData = {
   todos: TTodos[];
   monthDay: number;
 };
-
-export interface IMonthData {
+export type Items = {
   currentMonth: number;
   daysOfMonth: number;
   monthName: string;
-  monthsData: monthsData[];
-}
+  monthsData: { [x: string]: { data: monthsData[] } };
+  startWith: number;
+  currentDay: number;
+};
+export const getCurrentWeek = (month?: number) => {
+  month > 11 && (month = 1);
 
-export const getCurrentWeek = () => {
+  month <= 0 && (month = 11);
+
   const year = new Date().getFullYear();
   const currentDay = new Date().getDate();
-  const currentMonth: number = new Date().getMonth() + 1;
+  const currentMonth: number = month ? month : new Date().getMonth() + 1;
   const daysOfMonth: number = new Date(year, currentMonth, 0).getDate();
 
   const numWithLeadingZero = (num: number) => (num >= 10 ? num : "0" + num);
   const monthDateType = numWithLeadingZero(currentMonth);
 
   const monthName = months[currentMonth];
-
   const monthsData = [];
 
   for (let i = 0; i < daysOfMonth; i++) {
