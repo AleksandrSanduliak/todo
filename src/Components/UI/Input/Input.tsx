@@ -1,9 +1,6 @@
-import React from 'react';
-import styles from './Input.module.css';
-const Input = ({...props}) => {
-    return (
-        <input required className={styles.input} {...props}></input>
-    );
+import styles from "./Input.module.css";
+const Input = ({ ...props }): JSX.Element => {
+  return <input required className={styles.input} {...props}></input>;
 };
 
 export default Input;

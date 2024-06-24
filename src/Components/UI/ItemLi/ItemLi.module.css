@@ -12,38 +12,41 @@
   align-self: stretch;
   margin-bottom: 1rem;
 }
+
 .delete__wrap {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
 }
+
 .delete {
-  width: 14px;
-  height: 15px;
+  width: 0.875rem;
+  height: 0.938rem;
 }
+
 .cirle__list {
-  width: 17.45px;
-  height: 17.45px;
+  width: 1.091rem;
+  height: 1.091rem;
   background: transparent;
   border: 2px solid #4ea8de;
   margin-right: 1rem;
   margin-top: 3px;
   border-radius: 2rem;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   flex: 0 0 auto;
 }
-.circle__active{
-    background-color: #5E60CE;
-    border-color: #5E60CE;
-    
+
+.circle__active {
+  background-color: #5e60ce;
+  border-color: #5e60ce;
 }
+
 .list__item {
-  flex: 1 1 632px;
-  max-width: 632px;
-  padding-right:0.5rem;
+  flex: 1 1 auto;
+  padding-right: 0.5rem;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -53,9 +56,10 @@
   color: #f2f2f2;
   display: flex;
   align-self: center;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
-.list__active{
-    text-decoration: line-through;
-    color: #808080;
+
+.list__active {
+  text-decoration: line-through;
+  color: #808080;
 }

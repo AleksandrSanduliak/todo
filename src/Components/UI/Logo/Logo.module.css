@@ -1,97 +1,113 @@
 .Logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 2.5rem;
-    line-height: 3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 3rem;
 
-    padding-top: 4.5rem;
-    padding: 3.313rem;
+  padding-top: 4.5rem;
+  padding: 3.313rem;
 
-    width: 100%;
-    /* background-color: black; */
+  width: 100%;
+  background-color: black;
 }
-.logo__img{
-    margin-right: 1rem;
-    animation: img 0.5s linear backwards;
+
+.logo__img {
+  margin-right: 1rem;
+  animation: img 0.5s linear backwards;
 }
+
 .logo__tblue {
-    color: #4EA8DE;
-    animation: text 0.5s linear backwards;
-    animation-delay: 0.5s;
+  color: #4EA8DE;
+  animation: text 0.5s linear backwards;
+  animation-delay: 0.5s;
 }
-.logo__tpurple {
-    color: #5E60CE;
-    animation: text 0.5s linear backwards;
-    animation-delay: 1s;
-}
-.logo__text{
-    background: #1a1a1a;
-    padding: 0.5rem;
 
-    border-width: 3px;
-    border-style: solid;
-    
-    border-image-source: linear-gradient(to right, rgba(78,168,222,1), rgba(94,96,206,1));
-    border-image-slice: 1;
-    
-    animation: 2s borderImg 2s linear;
-    animation: 2s imgs 1s linear infinite;
-    transition: all .5s ease;
-    &:hover{
-        /* filter: blur(0.7px); */
-        box-shadow: 10px 5px 5px red;
-    }
+.logo__tpurple {
+  color: #5E60CE;
+  animation: text 0.5s linear backwards;
+  animation-delay: 1s;
+}
+
+.logo__text {
+  background: #1a1a1a;
+  padding: 0.5rem;
+
+  border-width: 3px;
+  border-style: solid;
+
+  border-image-source: linear-gradient(to right, rgba(78, 168, 222, 1), rgba(94, 96, 206, 1));
+  border-image-slice: 1;
+
+  animation: 2s borderImg 2s linear;
+  animation: 2s imgs 1s linear infinite;
+  transition: all .5s ease;
+
+  &:hover {
+    box-shadow: 10px 5px 5px red;
+  }
 }
 
 /* ANIMATIONS */
-@keyframes text{
-    0%{
-        width: 0;
-        opacity: 0;
-    }
-    100%{
-        width: 100%;
-        opacity: 1;
-    }
+@keyframes text {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
 }
-@keyframes imgs{
-    0%{
-        border-image-source: linear-gradient(form right, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    12.5%{
-        border-image-source: linear-gradient(to bottom,rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    25%{
-        border-image-source: linear-gradient(from bottom, rgba(78, 167, 222, 0.404), rgb(13, 15, 141));
-    }
-    37.5%{
-        border-image-source: linear-gradient(to left, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    50%{
-        border-image-source: linear-gradient(from left, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    62.5%{
-        border-image-source: linear-gradient(to top, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    75%{
-        border-image-source: linear-gradient(from top, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    87.5%{
-        border-image-source: linear-gradient(to right, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
-    100%{
-        border-image-source: linear-gradient(form right, rgba(78,168,222,1), rgb(43, 46, 219));
-    }
+
+@keyframes imgs {
+  0% {
+    border-image-source: linear-gradient(form right, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  12.5% {
+    border-image-source: linear-gradient(to bottom, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  25% {
+    border-image-source: linear-gradient(from bottom, rgba(78, 167, 222, 0.404), rgb(13, 15, 141));
+  }
+
+  37.5% {
+    border-image-source: linear-gradient(to left, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  50% {
+    border-image-source: linear-gradient(from left, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  62.5% {
+    border-image-source: linear-gradient(to top, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  75% {
+    border-image-source: linear-gradient(from top, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  87.5% {
+    border-image-source: linear-gradient(to right, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
+
+  100% {
+    border-image-source: linear-gradient(form right, rgba(78, 168, 222, 1), rgb(43, 46, 219));
+  }
 }
-@keyframes borderImg{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+
+@keyframes borderImg {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

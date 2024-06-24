@@ -7,11 +7,12 @@
 
   display: flex;
   align-content: center;
-
 }
+
 .counter__text {
   margin-right: 0.5rem;
 }
+
 .circle__counter {
   display: flex;
   flex-direction: column;
@@ -27,5 +28,5 @@
 
   color: #d9d9d9;
   background: #333333;
-  border-radius: 999px;
+  border-radius: 62.438rem;
 }
