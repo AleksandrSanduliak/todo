@@ -1,3 +1,9 @@
+# Описание
+Создать To-Do лист в виде календаря, где каждый день представлен как список задач.
+При клике на день открывается модальное окно со списком задач. В этом окне можно
+создавать новые задачи, удалять их и помечать как выполненные.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
